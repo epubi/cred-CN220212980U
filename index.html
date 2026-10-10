@@ -5,324 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一种可视化直肠活检装置 - 中国专利公布公告</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-            background: #f0f2f5;
-            color: #333;
-            font-size: 14px;
-        }
-        .header {
-            background: #fff;
-            padding: 14px 0;
-            border-bottom: 1px solid #e8e8e8;
-        }
-        .header-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            padding: 0 30px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            padding-right: 24px;
-            border-right: 1px solid #ddd;
-            margin-right: 24px;
-        }
-        .logo {
-            height: 72px;
-        }
-        .site-title {
-            font-size: 32px;
-            color: #1a5fb4;
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-        .nav {
-            background: #1e6bb8;
+        * {
+            margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .nav-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 30px;
+        
+        body {
+            font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif;
+            background-color: #e8e8e8;
+            color: #333;
+            line-height: 1.5;
         }
-        .nav-row {
+        /* Header */
+        .header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-content {
             display: flex;
             align-items: center;
-            height: 46px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .nav a {
-            color: #fff;
+        /* New CNIPA logo image */
+        .cnipa-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+        /* Page title next to logo */
+        .title {
+            font-size: 32px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        /* Navigation bar */
+        .nav-bar {
+            background-color: #2563eb;
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .nav-item {
+            color: white;
             text-decoration: none;
-            padding: 0 28px;
-            height: 46px;
-            line-height: 46px;
+            padding: 15px 25px;
             font-size: 14px;
+            transition: background-color 0.3s;
+            border-right: 1px solid rgba(255,255,255,0.2);
         }
-        .nav a:hover { background: rgba(255,255,255,0.12); }
-        .help-row {
-            text-align: right;
-            padding: 8px 30px 10px;
-            background: #1e6bb8;
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
         }
-        .help-btn {
-            background: rgba(255,255,255,0.18);
-            border: 1px solid rgba(255,255,255,0.45);
-            color: #fff;
-            border-radius: 18px;
-            padding: 6px 16px;
-            font-size: 13px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.2);
         }
+        .nav-item:last-child {
+            border-right: none;
+        }
+        
+        /* Main content container */
         .container {
-            max-width: 1180px;
-            margin: 16px auto 0;
-            background: #fff;
-            padding: 24px 40px 50px;
-            min-height: 600px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content-wrapper {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .patent-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #222;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: normal;
         }
-        .type-btns {
-            margin-bottom: 24px;
+        
+        .button-group {
+            margin-bottom: 30px;
         }
-        .type-btns a {
-            display: inline-block;
-            padding: 6px 14px;
+        .btn {
+            padding: 8px 16px;
             margin-right: 10px;
-            border-radius: 2px;
-            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
             text-decoration: none;
-            font-size: 13px;
-            background: #2b7de9;
+            display: inline-block;
         }
-        .type-btns a:nth-child(2) {
-            background: #3d8be0;
+        .btn-primary {
+            background-color: #3182ce;
+            color: white;
         }
-        .info-list {
+        .btn-secondary {
+            background-color: #718096;
+            color: white;
+        }
+        
+        .patent-info {
             margin-bottom: 30px;
         }
         .info-row {
             display: flex;
-            padding: 12px 0;
-            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 15px;
             align-items: flex-start;
         }
         .info-label {
-            width: 108px;
-            flex-shrink: 0;
-            color: #333;
+            width: 120px;
+            color: #666;
             font-size: 14px;
+            flex-shrink: 0;
         }
         .info-value {
-            flex: 1;
-            color: #222;
+            color: #333;
             font-size: 14px;
-            padding-left: 4px;
+            line-height: 1.5;
         }
+        
         .abstract-section {
-            margin-top: 10px;
+            margin-bottom: 30px;
         }
         .abstract-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: normal;
         }
         .abstract-text {
+            color: #555;
             line-height: 1.8;
+            font-size: 14px;
             text-align: justify;
-            color: #333;
-            margin-bottom: 20px;
+        }
+        
+        .drawing-section {
+            margin-bottom: 30px;
         }
         .drawing-title {
-            font-weight: 600;
-            margin: 20px 0 10px;
-            font-size: 14px;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: normal;
         }
-        .drawing-box {
-            border: 1px solid #d9d9d9;
-            padding: 40px 20px;
+        .drawing-container {
             text-align: center;
-            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
         }
+        .drawing {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Footer */
         .footer {
-            background: #f0f2f5;
-            padding: 24px 20px 40px;
+            background-color: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
             text-align: center;
-            font-size: 12px;
-            color: #666;
         }
         .footer-links {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
-        .footer-links a {
-            color: #2b7de9;
+        .footer-link {
+            color: #3182ce;
             text-decoration: none;
-            margin: 0 6px;
+            margin: 0 10px;
+            font-size: 14px;
         }
         .footer-info {
-            line-height: 1.9;
-            margin-bottom: 18px;
+            color: #666;
+            font-size: 12px;
+            line-height: 1.6;
         }
-        .footer-icons {
+        .footer-logos {
+            margin-top: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 16px;
-            margin-top: 12px;
         }
-        .gov-error-img {
-            height: 36px;
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
         }
-        .party-img {
-            height: 28px;
-            vertical-align: middle;
-            margin-left: 6px;
-        }
-    </style>
+    
+/* Reference-inspired responsive layout */
+body{background:#edf0f1;color:#666;font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.header{padding:26px 24px 30px;border:0;background:linear-gradient(#f1f3f5,#fff)}
+.header-content{max-width:1280px;gap:20px}.cnipa-logo{height:64px;margin-right:0}.title{font-size:38px;color:#2d83b6;letter-spacing:2px;border-left:1px solid #d5dce0;padding-left:22px}
+.nav-bar{background:linear-gradient(180deg,#2c85b8,#2366a6);box-shadow:none}.nav-content{max-width:1280px;flex-wrap:wrap;justify-content:space-between;padding:8px 0 20px}.nav-item{font-size:19px;padding:18px 22px;border:0}.nav-item.active{background:transparent}.nav-item:last-child{border:1px solid #60a9ce;border-radius:28px;padding:8px 24px;margin:4px 12px 0 auto}
+.container{max-width:1280px;padding:0;margin:28px auto}.content-wrapper{border-radius:0;box-shadow:none;padding:38px 40px 48px}.patent-title{font-size:25px;font-weight:700;color:#111;margin-bottom:20px}.button-group{margin-bottom:26px}.btn{font-size:17px;border-radius:2px;padding:5px 16px;margin-right:14px}.btn-primary,.btn-secondary{background:#2e83b4}
+.patent-info,.abstract-section,.drawing-section{max-width:880px;margin-bottom:26px}.info-row{border-top:1px solid #cfe1eb;margin:0;padding:12px 0;gap:22px}.info-row:last-child{border-bottom:1px solid #cfe1eb}.info-label{width:240px;font-size:18px;font-weight:700}.info-value{font-size:18px;color:#666;min-width:0;overflow-wrap:anywhere;line-height:1.65}.abstract-section{border-top:1px solid #cfe1eb;padding-top:12px;margin-bottom:12px}.abstract-title{display:inline;font-size:18px;font-weight:700;color:#666}.abstract-text{display:inline;font-size:18px;line-height:1.75;color:#666}.drawing-section{border-top:2px solid #d4e6ef}.drawing-title{font-size:18px;font-weight:700;color:#666;margin-bottom:12px}.drawing-container{background:#fff;border-radius:0;padding:16px 20px 80px}.drawing{width:600px;max-width:100%}
+.footer{background:transparent;border:0;padding:0 24px 30px;margin-top:26px}.footer-link{font-size:17px}.footer-info{font-size:15px;line-height:1.7}.footer-logos{gap:12px}.footer-logo{width:auto;min-width:48px;padding:8px;height:auto;background:#fff}
+@media(max-width:700px){.header{padding:20px 16px}.header-content{gap:10px}.cnipa-logo{height:auto;width:125px}.title{font-size:21px;letter-spacing:0;padding-left:12px}.nav-content{padding:6px 8px;justify-content:flex-start;gap:0}.nav-item{font-size:14px;padding:10px 12px}.nav-item:last-child{font-size:13px;padding:6px 12px;margin:2px 0 6px 8px}.container{margin:14px 12px}.content-wrapper{padding:24px 18px}.patent-title{font-size:22px;line-height:1.5}.btn{font-size:14px}.info-row{gap:12px;padding:12px 0}.info-label{width:104px;font-size:15px}.info-value{font-size:15px;line-height:1.7}.abstract-title,.abstract-text,.drawing-title{font-size:15px}.drawing-container{padding:12px 6px 36px}.footer-info{font-size:12px}.footer-link{font-size:14px}}
+@media(max-width:360px){.cnipa-logo{width:100px}.title{font-size:18px}.info-label{width:90px}.content-wrapper{padding:22px 14px}}
+
+</style>
 </head>
 <body>
+    <!-- Header with CNIPA logo and title -->
     <header class="header">
-        <div class="header-inner">
-            <div class="logo-area">
-                <img src="logo.png" alt="CNIPA" class="logo">
-            </div>
-            <div class="site-title">中国专利公布公告</div>
+        <div class="header-content">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY0AAAClCAYAAACgL6E+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAJOgAACToAYJjBRwAAID8SURBVHhe7f13lCXZfd8JfiLieZMvvfeZlVlZLstXl+tuuCYMSQgCIQgkJEqiZs7sjKTRntVoNUNSh3+s9q/dc+acXZ3ZPaLEITFLESIoEgDhG92N7jJd3mVlVmal9/55G27/iIhXL5/JzKqubqCB+L4T+Xu/d+OauBEZ9/7uz1xhKxrTsWHDhg0bNvYBUQAEQcCmNrWpTW1q012pICBsRWO6UDCK6IDN27zN27zN23wxDyBsx+J60W82bNiwYcNGWQjbtk7Dhg0bNmzsE7akYcOGDRs29g0R3RwzbGpTm9rUpjbdjVqSRrGioxB6GUVIIex0... (truncated for size, full base64 is in the original file)" alt="CNIPA Logo" class="cnipa-logo">
+            <div class="title">中国专利公布公告</div>
         </div>
     </header>
-
-    <nav class="nav">
-        <div class="nav-inner">
-            <div class="nav-row">
-                <a href="#">首页</a>
-                <a href="#">事务查询</a>
-                <a href="#">专利公报查询</a>
-                <a href="#">高级查询</a>
-                <a href="#">IPC分类查询</a>
-                <a href="#">LOC分类查询</a>
-                <a href="#">数据说明</a>
-            </div>
-        </div>
-        <div class="help-row">
-            <a href="#" class="help-btn">💡 使用说明</a>
+    
+    <!-- Navigation bar -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item">首页</a>
+            <a href="#" class="nav-item">事务查询</a>
+            <a href="#" class="nav-item active">专利公告查询</a>
+            <a href="#" class="nav-item">高级查询</a>
+            <a href="#" class="nav-item">IPC分类查询</a>
+            <a href="#" class="nav-item">LOC分类查询</a>
+            <a href="#" class="nav-item">数据说明</a>
+            <a href="#" class="nav-item">🗺️ 使用说明</a>
         </div>
     </nav>
-
+    
+    <!-- Main content -->
     <div class="container">
-        <h1 class="patent-title">一种可视化直肠活检装置</h1>
-
-        <div class="type-btns">
-            <a href="#">实用新型专利</a>
-            <a href="#">事务数据</a>
-        </div>
-
-        <div class="info-list">
-            <div class="info-row">
-                <div class="info-label">授权公告号：</div>
-                <div class="info-value">CN220212980U</div>
+        <div class="content-wrapper">
+            <h1 class="patent-title">一种可视化直肠活检装置</h1>
+            
+            <div class="button-group">
+                <a href="#" class="btn btn-primary">实用新型专利</a>
+                <a href="#" class="btn btn-secondary">摘要数据</a>
             </div>
-            <div class="info-row">
-                <div class="info-label">授权公告日：</div>
-                <div class="info-value">2023.12.22</div>
+            
+            <div class="patent-info">
+                <div class="info-row">
+                    <div class="info-label">授权公告号：</div>
+                    <div class="info-value">CN220212980U</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">授权公告日：</div>
+                    <div class="info-value">2023.12.22</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">申请号：</div>
+                    <div class="info-value">202321543367</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">申请日：</div>
+                    <div class="info-value">2023.06.16</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">专利权人：</div>
+                    <div class="info-value">哈尔滨医科大学</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">地址：</div>
+                    <div class="info-value">150081 黑龙江省哈尔滨市南岗区保健路157号</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">发明人：</div>
+                    <div class="info-value">姚霆;蒋在群;孙忠博;王书玉;许芝林;王云婷;郝增辉</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">分类号：</div>
+                    <div class="info-value">A61B10/06(2006.01)I;A61B10/04(2006.01)I;A61B18/12(2006.01)I;A61B18/14(2006.01)I;A61M31/00(2006.01)I;A61B1/31(2006.01)I;A61B1/04(2006.01)I</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">专利代理机构：</div>
+                    <div class="info-value">哈尔滨市佳专利代理事务所(普通合伙)23209</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">专利代理师：</div>
+                    <div class="info-value">姜俊媛</div>
+                </div>
             </div>
-            <div class="info-row">
-                <div class="info-label">申请号：</div>
-                <div class="info-value">202321543367</div>
+            
+            <div class="abstract-section">
+                <h3 class="abstract-title">摘要：</h3>
+                <p class="abstract-text">本实用新型涉及医疗用品领域，公开了一种可视化直肠活检装置，所述装置包括套管，所述套管为与外鞘连接，所述外鞘端口的直径大于所述套管的直径；所述套管内设置第一芯管、第二芯管，所述第一芯管内设置活检钳，所述第二芯管内设置可视化装置，所述套管套设刻度线。本实用新型解决了现有技术中传统的全麻下经口直肠活检过程中无法实现或全麻下腹腔镜下直肠活检取出术，手术时间较长、手术难度较大、手术风险较高的问题。</p>
             </div>
-            <div class="info-row">
-                <div class="info-label">申请日：</div>
-                <div class="info-value">2023.06.16</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">专利权人：</div>
-                <div class="info-value">哈尔滨医科大学</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">地址：</div>
-                <div class="info-value">150081 黑龙江省哈尔滨市南岗区保健路157号</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">发明人：</div>
-                <div class="info-value">姚霆;蒋在群;孙忠博;王书玉;许芝林;王云婷;郝增辉</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">分类号：</div>
-                <div class="info-value">A61B10/06(2006.01)I; A61B10/04(2006.01)I; A61B18/12(2006.01)I; A61B18/14(2006.01)I; A61M31/00(2006.01)I; A61B1/31(2006.01)I; A61B1/04(2006.01)I</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">专利代理机构：</div>
-                <div class="info-value">哈尔滨市佳专利代理事务所(普通合伙)23209</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">专利代理师：</div>
-                <div class="info-value">姜俊媛</div>
-            </div>
-        </div>
-
-        <div class="abstract-section">
-            <div class="abstract-title">摘要：</div>
-            <p class="abstract-text">本实用新型涉及医疗用品领域，公开了一种可视化直肠活检装置，所述装置包括套管，所述套管末端与外鞘连接，所述外鞘端口的直径大于所述套管的直径；所述套管内设置第一短管、第二短管，所述第一短管内设置活检钳，所述第二短管内设置可视化装置，所述套管壁上设置刻度线。本实用新型解决了现有技术中传统的全麻下经肛门直肠病理取出术或全麻下腹腔镜下直肠病理取出术，手术时间较长、手术难度较大、手术风险较高的问题。</p>
-
-            <div class="drawing-title">摘要附图</div>
-            <div class="drawing-box">
-                <svg width="620" height="160" viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" stroke="#444" stroke-width="1.1">
-                        <line x1="30" y1="65" x2="460" y2="65"/>
-                        <line x1="30" y1="95" x2="460" y2="95"/>
-                        <line x1="30" y1="65" x2="30" y2="95"/>
-                        <path d="M460 65 L485 58 L520 58 L520 70 L540 70 L540 90 L520 90 L520 102 L485 102 L460 95"/>
-                        <path d="M485 58 L485 35 L505 35 L505 50"/>
-                        <circle cx="495" cy="42" r="3.5"/>
-                        <line x1="50" y1="72" x2="450" y2="72" stroke-width="0.5"/>
-                        <line x1="50" y1="88" x2="450" y2="88" stroke-width="0.5"/>
-                        <g stroke-width="0.4">
-                            <line x1="80" y1="60" x2="80" y2="100"/>
-                            <line x1="130" y1="60" x2="130" y2="100"/>
-                            <line x1="180" y1="60" x2="180" y2="100"/>
-                            <line x1="230" y1="60" x2="230" y2="100"/>
-                            <line x1="280" y1="60" x2="280" y2="100"/>
-                            <line x1="330" y1="60" x2="330" y2="100"/>
-                            <line x1="380" y1="60" x2="380" y2="100"/>
-                            <line x1="430" y1="60" x2="430" y2="100"/>
+            
+            <div class="drawing-section">
+                <h3 class="drawing-title">摘要附图</h3>
+                <div class="drawing-container">
+                    <svg width="600" height="200" viewBox="0 0 600 200" class="drawing">
+                        <!-- Technical drawing representation of the medical device -->
+                        <g stroke="#333" stroke-width="1.5" fill="none">
+                            <!-- Main tube body -->
+                            <line x1="50" y1="90" x2="500" y2="90" stroke-width="2"/>
+                            <line x1="50" y1="110" x2="500" y2="110" stroke-width="2"/>
+                            <!-- Inner tube components -->
+                            <line x1="60" y1="95" x2="490" y2="95" stroke-width="1"/>
+                            <line x1="60" y1="105" x2="490" y2="105" stroke-width="1"/>
+                            <!-- End connection -->
+                            <line x1="50" y1="90" x2="50" y2="110" stroke-width="2"/>
+                            <!-- Device end -->
+                            <line x1="500" y1="90" x2="520" y2="85" stroke-width="2"/>
+                            <line x1="500" y1="110" x2="520" y2="115" stroke-width="2"/>
+                            <line x1="520" y1="85" x2="540" y2="85" stroke-width="2"/>
+                            <line x1="520" y1="115" x2="540" y2="115" stroke-width="2"/>
+                            <line x1="540" y1="85" x2="540" y2="115" stroke-width="2"/>
+                            <!-- Visualization component -->
+                            <circle cx="520" cy="75" r="5" stroke-width="1"/>
+                            <line x1="520" y1="70" x2="520" y2="85" stroke-width="1"/>
+                            <!-- Biopsy tool -->
+                            <line x1="530" y1="90" x2="550" y2="90" stroke-width="1.5"/>
+                            <line x1="530" y1="110" x2="550" y2="110" stroke-width="1.5"/>
+                            <line x1="550" y1="90" x2="550" y2="110" stroke-width="1.5"/>
+                            <!-- Scale markings -->
+                            <g stroke-width="0.5">
+                                <line x1="100" y1="85" x2="100" y2="115"/>
+                                <line x1="150" y1="85" x2="150" y2="115"/>
+                                <line x1="200" y1="85" x2="200" y2="115"/>
+                                <line x1="250" y1="85" x2="250" y2="115"/>
+                                <line x1="300" y1="85" x2="300" y2="115"/>
+                                <line x1="350" y1="85" x2="350" y2="115"/>
+                                <line x1="400" y1="85" x2="400" y2="115"/>
+                                <line x1="450" y1="85" x2="450" y2="115"/>
+                            </g>
+                            <!-- Component labels -->
+                            <text x="100" y="135" text-anchor="middle" font-size="12" fill="#666">1</text>
+                            <text x="200" y="135" text-anchor="middle" font-size="12" fill="#666">2</text>
+                            <text x="300" y="135" text-anchor="middle" font-size="12" fill="#666">3</text>
+                            <text x="400" y="135" text-anchor="middle" font-size="12" fill="#666">4</text>
+                            <text x="520" y="135" text-anchor="middle" font-size="12" fill="#666">5</text>
+                            <text x="520" y="60" text-anchor="middle" font-size="12" fill="#666">6</text>
+                            <text x="540" y="135" text-anchor="middle" font-size="12" fill="#666">7</text>
+                            <text x="550" y="75" text-anchor="middle" font-size="12" fill="#666">8</text>
+                            <text x="75" y="135" text-anchor="middle" font-size="12" fill="#666">9</text>
+                            <!-- Leader lines -->
+                            <g stroke-dasharray="1,1" stroke-width="0.5">
+                                <line x1="100" y1="115" x2="100" y2="125"/>
+                                <line x1="200" y1="115" x2="200" y2="125"/>
+                                <line x1="300" y1="115" x2="300" y2="125"/>
+                                <line x1="400" y1="115" x2="400" y2="125"/>
+                                <line x1="520" y1="115" x2="520" y2="125"/>
+                                <line x1="520" y1="70" x2="520" y2="55"/>
+                                <line x1="540" y1="115" x2="540" y2="125"/>
+                                <line x1="550" y1="90" x2="565" y2="75"/>
+                                <line x1="75" y1="100" x2="75" y2="125"/>
+                            </g>
                         </g>
-                    </g>
-                    <g font-size="11" fill="#333" font-family="Arial">
-                        <text x="60" y="115">8</text>
-                        <text x="150" y="115">1</text>
-                        <text x="260" y="115">7</text>
-                        <text x="370" y="115">2</text>
-                        <text x="470" y="115">4</text>
-                        <text x="498" y="28">9</text>
-                        <text x="525" y="115">6</text>
-                        <text x="545" y="80">5</text>
-                        <text x="490" y="130">3</text>
-                    </g>
-                </svg>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
-
+    
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
-            <a href="#">版权声明</a> | <a href="#">联系我们</a>
+            <a href="#" class="footer-link">版权声明</a>
+            <a href="#" class="footer-link">联系我们</a>
         </div>
         <div class="footer-info">
             主办单位：国家知识产权局　软件维护：知识产权出版社　网站标识码：bm38000007　ICP备案编号：京ICP备05069085号-14<br>
-            京公网安备 11040102700058号　版权所有：国家知识产权局（未经许可不得复制）　网站技术支持：010-62086466 / 6421 / 6415
-            <img src="party.png" alt="党政机关" class="party-img">
+            ⚠️ 京公网备 11040102700058号 版权所有：国家知识产权局（未经许可不得复制）　网站技术支持：010-62086466 / 6421 / 6415
         </div>
-        <div class="footer-icons">
-            <img src="gov_error.png" alt="政府网站找错" class="gov-error-img">
+        <div class="footer-logos">
+            <div class="footer-logo">⚠️</div>
+            <div class="footer-logo">🔍 政府网站<br>找错</div>
         </div>
     </footer>
 </body>
